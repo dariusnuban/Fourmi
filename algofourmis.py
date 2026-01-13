@@ -118,3 +118,5 @@ if __name__ == "__main__":
     
     # Exécuter l'algorithme
     colonie.run(callback_maj, evenement_arret)
+
+    ##Partie 5 finie mais ca marche pa strop encore

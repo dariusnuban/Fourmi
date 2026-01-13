@@ -5,7 +5,6 @@ import threading
 class AntColony:
     def __init__(self, distances, n_ants, n_best, n_iterations, decay, alpha=1, beta=2):
         self.distances = distances
-        self.pheromone = [[1 / len(distances) for _ in range(len(distances))] for _ in range(len(distances))]
         self.n_ants = n_ants
         self.n_best = n_best
         self.n_iterations = n_iterations
@@ -88,7 +87,7 @@ class AntColony:
 if __name__ == "__main__":
     # Matrice de distances d'exemple (4 villes)
     distances = [
-        [0, 2, 9, 10],
+        [0, 2, 10, 10],
         [1, 0, 6, 4],
         [15, 7, 0, 8],
         [6, 3, 12, 0]
@@ -111,7 +110,7 @@ if __name__ == "__main__":
     # Définir une fonction de callback
     def callback_maj(iteration, chemin, pheromones):
         if iteration % 10 == 0:
-            print(f"Iteration {iteration}: Meilleur chemin = {chemin}, Distance = {colonie.meilleure_distance}")
+            print(f"Iteration {iteration}: Meilleur chemin = {colonie.meilleur_chemin}, Chemin = {chemin}, Distance = {colonie.meilleure_distance}")
             print("Pheromones matrix:")
             for row in pheromones:
                 print(row)  
